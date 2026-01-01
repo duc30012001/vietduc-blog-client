@@ -25,3 +25,31 @@ export function calculateReadTime(content: string | null | undefined): number {
     const wordCount = content?.split(/\s+/).length || 0;
     return Math.max(1, Math.ceil(wordCount / 200));
 }
+
+/**
+ * Format a number for display based on the current locale.
+ * Supports compact notation for large numbers (e.g., 1.2K, 1.5M).
+ */
+export function formatNumber(
+    value: number | null | undefined,
+    locale: Locale,
+    options?: {
+        compact?: boolean;
+        decimals?: number;
+    }
+): string {
+    if (value == null) return "0";
+
+    const localeStr = locale === "vi" ? "vi-VN" : "en-US";
+
+    if (options?.compact) {
+        return new Intl.NumberFormat(localeStr, {
+            notation: "compact",
+            maximumFractionDigits: options?.decimals ?? 1,
+        }).format(value);
+    }
+
+    return new Intl.NumberFormat(localeStr, {
+        maximumFractionDigits: options?.decimals ?? 0,
+    }).format(value);
+}

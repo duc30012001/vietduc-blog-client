@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
+import NextTopLoader from "nextjs-toploader";
 
 const jetbrainsMono = JetBrains_Mono({
     variable: "--font-mono",
@@ -51,6 +52,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             >
                 <ToastProvider />
                 <NextIntlClientProvider>
+                    <NextTopLoader />
                     <MainLayout categories={categories?.data || []}>{children}</MainLayout>
                 </NextIntlClientProvider>
             </body>

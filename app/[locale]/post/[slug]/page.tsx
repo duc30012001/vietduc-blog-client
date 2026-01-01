@@ -116,7 +116,6 @@ export default async function PostDetailPage({ params }: Props) {
                 {/* Post Content */}
                 <div className="col-span-12 lg:col-span-8">
                     <MdViewer source={content} />
-                    <MdViewer source={content} />
                 </div>
 
                 <div className="col-span-12 lg:col-span-3">

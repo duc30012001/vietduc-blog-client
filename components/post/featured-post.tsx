@@ -3,6 +3,7 @@ import { Locale, PublicPost } from "@/lib/types";
 import {
     appRoutes,
     calculateReadTime,
+    formatNumber,
     formatPublishDate,
     getLocalizedContent,
     getLocalizedExcerpt,
@@ -112,7 +113,9 @@ function FeaturedPost({ data }: Props) {
                             {/* View */}
                             {data.view_count && (
                                 <Badge variant="glass">
-                                    {messages("post.views", { value: data.view_count })}
+                                    {messages("post.views", {
+                                        value: formatNumber(data.view_count, locale),
+                                    })}
                                 </Badge>
                             )}
                         </div>
