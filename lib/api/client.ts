@@ -1,5 +1,3 @@
-import toast from "react-hot-toast";
-
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 interface FetchOptions extends RequestInit {
@@ -99,7 +97,7 @@ async function fetchApi<T>(endpoint: string, options: FetchOptions = {}): Promis
 
         // Network or other errors
         if (showToastOnError) {
-            toast.error("Network error. Please try again.");
+            // toast.error("Network error. Please try again.");
             return null;
         }
 

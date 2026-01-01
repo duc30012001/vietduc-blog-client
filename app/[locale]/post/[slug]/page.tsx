@@ -1,5 +1,5 @@
 import MdViewer from "@/components/md-viewer";
-import PostCard from "@/components/post/post-card";
+import GridPost from "@/components/post/grid-post";
 import { ShareButtons } from "@/components/share-buttons";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
@@ -146,16 +146,9 @@ export default async function PostDetailPage({ params }: Props) {
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
-                <section className="mx-auto mt-16 max-w-6xl border-t border-gray-200 pt-8 dark:border-gray-700">
-                    <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
-                        {messages("post.relatedPosts")}
-                    </h2>
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {relatedPosts.map((relatedPost) => (
-                            <PostCard key={relatedPost.id} post={relatedPost} />
-                        ))}
-                    </div>
-                </section>
+                <div className="mx-auto mt-16 max-w-6xl border-t border-gray-200 pt-8 dark:border-gray-700">
+                    <GridPost data={relatedPosts} title={messages("post.relatedPosts")} />
+                </div>
             )}
         </article>
     );

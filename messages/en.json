@@ -4,7 +4,9 @@
         "publishedAt": "Published at",
         "minRead": "{value} min read",
         "views": "{value} views",
-        "relatedPosts": "Related Posts"
+        "relatedPosts": "Related Posts",
+        "latestPosts": "Latest Posts",
+        "viewMore": "View more"
     },
     "category": {
         "name": "Category"

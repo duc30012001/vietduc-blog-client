@@ -4,7 +4,9 @@
         "publishedAt": "Đăng vào",
         "minRead": "{value} phút đọc",
         "views": "{value} lượt xem",
-        "relatedPosts": "Bài viết liên quan"
+        "relatedPosts": "Bài viết liên quan",
+        "latestPosts": "Bài viết mới nhất",
+        "viewMore": "Xem thêm"
     },
     "category": {
         "name": "Danh mục"

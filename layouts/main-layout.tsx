@@ -32,7 +32,7 @@ function MainLayout({ children, categories }: Props) {
     return (
         <div className="min-h-screen bg-white dark:bg-gray-900">
             {/* Header */}
-            <Navbar rounded className="sticky top-0 z-50 shadow">
+            <Navbar rounded className="sticky top-0 z-50 rounded-none shadow">
                 <NavbarBrand as={Link} href={appRoutes.home}>
                     <Image
                         src={appConfig.app.icon}
