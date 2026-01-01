@@ -1,0 +1,71 @@
+.md-viewer {
+    /* Force markdown content to use app font */
+    font-family: inherit;
+    /* background: transparent !important; */
+
+    & * {
+        font-family: inherit !important;
+        /* background: transparent !important; */
+    }
+
+    /* Reset Tailwind's Preflight base styles for markdown content */
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6 {
+        font-size: revert;
+        font-weight: revert;
+    }
+
+    & p {
+        margin: revert;
+    }
+
+    & ol,
+    & ul {
+        list-style: revert;
+        margin: revert;
+        padding: revert;
+    }
+
+    & blockquote {
+        margin: revert;
+        padding: revert;
+        border: revert;
+    }
+
+    & a {
+        color: revert;
+        text-decoration: revert;
+    }
+
+    & img {
+        display: block !important;
+        max-width: 100%;
+        height: auto;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    & pre,
+    & code {
+        font-size: revert;
+    }
+
+    & table {
+        border-collapse: revert;
+    }
+
+    & th,
+    & td {
+        padding: revert;
+        border: revert;
+    }
+
+    & hr {
+        border: revert;
+        margin: revert;
+    }
+}

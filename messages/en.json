@@ -1,0 +1,34 @@
+{
+    "post": {
+        "writtenBy": "Written by",
+        "publishedAt": "Published at",
+        "minRead": "{value} min read",
+        "views": "{value} views",
+        "relatedPosts": "Related Posts"
+    },
+    "category": {
+        "name": "Category"
+    },
+    "tag": {
+        "name": "Tag"
+    },
+    "share": {
+        "facebook": "Share on Facebook",
+        "twitter": "Share on Twitter",
+        "linkedin": "Share on LinkedIn",
+        "zalo": "Share on Zalo",
+        "copyLink": "Copy link",
+        "copied": "Link copied!",
+        "print": "Print"
+    },
+    "search": {
+        "placeholder": "Search posts...",
+        "title": "Search Results",
+        "noResults": "No results found for"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "auto": "Auto"
+    }
+}

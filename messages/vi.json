@@ -1,0 +1,35 @@
+{
+    "post": {
+        "writtenBy": "Tác giả",
+        "publishedAt": "Đăng vào",
+        "minRead": "{value} phút đọc",
+        "views": "{value} lượt xem",
+        "relatedPosts": "Bài viết liên quan"
+    },
+    "category": {
+        "name": "Danh mục"
+    },
+    "tag": {
+        "name": "Từ khoá"
+    },
+    "share": {
+        "facebook": "Chia sẻ lên Facebook",
+        "twitter": "Chia sẻ lên Twitter",
+        "linkedin": "Chia sẻ lên LinkedIn",
+        "zalo": "Chia sẻ qua Zalo",
+        "copyLink": "Sao chép liên kết",
+        "copied": "Đã sao chép!",
+        "print": "In bài viết"
+    },
+    "search": {
+        "placeholder": "Tìm kiếm bài viết...",
+        "title": "Kết quả tìm kiếm",
+        "noResults": "Không tìm thấy kết quả cho",
+        "resultsFor": "Kết quả cho"
+    },
+    "theme": {
+        "light": "Sáng",
+        "dark": "Tối",
+        "auto": "Tự động"
+    }
+}
