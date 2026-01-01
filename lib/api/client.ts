@@ -1,7 +1,14 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/v1";
+import toast from "react-hot-toast";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 interface FetchOptions extends RequestInit {
     params?: Record<string, string | number | undefined>;
+    /**
+     * If true, show toast on error instead of throwing (for list endpoints)
+     * If false, throw error (for detail endpoints - will show error page)
+     */
+    showToastOnError?: boolean;
 }
 
 class ApiError extends Error {
@@ -35,41 +42,69 @@ function buildUrl(endpoint: string, params?: Record<string, string | number | un
 
 /**
  * Generic fetch wrapper with error handling
+ * @param showToastOnError - If true, shows toast and returns null on error (for lists)
+ *                           If false, throws error (for detail pages)
  */
-async function fetchApi<T>(endpoint: string, options: FetchOptions = {}): Promise<T> {
-    const { params, ...fetchOptions } = options;
+async function fetchApi<T>(endpoint: string, options: FetchOptions = {}): Promise<T | null> {
+    const { params, showToastOnError = true, ...fetchOptions } = options;
 
     const url = buildUrl(endpoint, params);
 
-    const response = await fetch(url, {
-        ...fetchOptions,
-        headers: {
-            "Content-Type": "application/json",
-            ...fetchOptions.headers,
-        },
-    });
+    try {
+        const response = await fetch(url, {
+            ...fetchOptions,
+            headers: {
+                "Content-Type": "application/json",
+                ...fetchOptions.headers,
+            },
+        });
 
-    if (!response.ok) {
-        let errorData: unknown;
-        try {
-            errorData = await response.json();
-        } catch {
-            errorData = await response.text();
+        if (!response.ok) {
+            let errorData: unknown;
+            try {
+                errorData = await response.clone().json();
+            } catch {
+                errorData = await response.text();
+            }
+
+            const error = new ApiError(
+                `API Error: ${response.status} ${response.statusText}`,
+                response.status,
+                errorData
+            );
+
+            if (showToastOnError) {
+                // Show toast and return null for list endpoints
+                const message =
+                    response.status === 404 ? "Data not found" : `Error: ${response.statusText}`;
+                // toast.error(message);
+                return null;
+            }
+
+            // Throw error for detail endpoints (will be caught by error boundary)
+            throw error;
         }
-        throw new ApiError(
-            `API Error: ${response.status} ${response.statusText}`,
-            response.status,
-            errorData
-        );
-    }
 
-    // Handle empty responses
-    const text = await response.text();
-    if (!text) {
-        return {} as T;
-    }
+        // Handle empty responses
+        const text = await response.text();
+        if (!text) {
+            return {} as T;
+        }
 
-    return JSON.parse(text) as T;
+        return JSON.parse(text) as T;
+    } catch (error) {
+        if (error instanceof ApiError) {
+            throw error;
+        }
+
+        // Network or other errors
+        if (showToastOnError) {
+            toast.error("Network error. Please try again.");
+            return null;
+        }
+
+        throw error;
+    }
 }
 
 export { ApiError, buildUrl, fetchApi };

@@ -13,14 +13,14 @@ import { fetchApi } from "./client";
 /**
  * Get all categories as tree structure
  */
-export async function getCategories(): Promise<ApiResponse<PublicCategory[]>> {
-    return fetchApi<ApiResponse<PublicCategory[]>>("/v1/public/categories");
+export async function getCategories(): Promise<ApiResponse<PublicCategory[]> | null> {
+    return fetchApi<ApiResponse<PublicCategory[]>>("/v1/public/categories", {});
 }
 
 /**
  * Get a single category by slug
  */
-export async function getCategoryBySlug(slug: string): Promise<ApiResponse<PublicCategory>> {
+export async function getCategoryBySlug(slug: string): Promise<ApiResponse<PublicCategory> | null> {
     return fetchApi<ApiResponse<PublicCategory>>(`/v1/public/categories/${slug}`);
 }
 
@@ -30,7 +30,7 @@ export async function getCategoryBySlug(slug: string): Promise<ApiResponse<Publi
 export async function getPostsByCategorySlug(
     slug: string,
     query?: PaginationQuery
-): Promise<ApiResponse<PaginatedResponse<PublicPost>>> {
+): Promise<ApiResponse<PaginatedResponse<PublicPost>> | null> {
     return fetchApi<ApiResponse<PaginatedResponse<PublicPost>>>(
         `/v1/public/categories/${slug}/posts`,
         {
@@ -53,24 +53,24 @@ export interface PostsQuery extends PaginationQuery {
  */
 export async function getPosts(
     query?: PostsQuery
-): Promise<ApiResponse<PaginatedResponse<PublicPost>>> {
+): Promise<ApiResponse<PaginatedResponse<PublicPost>> | null> {
     return fetchApi<ApiResponse<PaginatedResponse<PublicPost>>>("/v1/public/posts", {
         params: query as Record<string, string | number | undefined>,
     });
 }
 
 /**
- * Get a single post by slug
+ * Get a single post by slug (throws error for error page)
  */
-export async function getPostBySlug(slug: string): Promise<ApiResponse<PublicPost>> {
+export async function getPostBySlug(slug: string): Promise<ApiResponse<PublicPost> | null> {
     return fetchApi<ApiResponse<PublicPost>>(`/v1/public/posts/${slug}`);
 }
 
 /**
  * Get related posts
  */
-export async function getRelatedPosts(slug: string): Promise<ApiResponse<PublicPost[]>> {
-    return fetchApi<ApiResponse<PublicPost[]>>(`/v1/public/posts/${slug}/related`);
+export async function getRelatedPosts(slug: string): Promise<ApiResponse<PublicPost[]> | null> {
+    return fetchApi<ApiResponse<PublicPost[]>>(`/v1/public/posts/${slug}/related`, {});
 }
 
 // ==================== Tags API ====================
@@ -78,14 +78,14 @@ export async function getRelatedPosts(slug: string): Promise<ApiResponse<PublicP
 /**
  * Get all tags with post counts
  */
-export async function getTags(): Promise<ApiResponse<PublicTag[]>> {
-    return fetchApi<ApiResponse<PublicTag[]>>("/v1/public/tags");
+export async function getTags(): Promise<ApiResponse<PublicTag[]> | null> {
+    return fetchApi<ApiResponse<PublicTag[]>>("/v1/public/tags", {});
 }
 
 /**
  * Get a single tag by slug
  */
-export async function getTagBySlug(slug: string): Promise<ApiResponse<PublicTag>> {
+export async function getTagBySlug(slug: string): Promise<ApiResponse<PublicTag> | null> {
     return fetchApi<ApiResponse<PublicTag>>(`/v1/public/tags/${slug}`);
 }
 
@@ -95,7 +95,7 @@ export async function getTagBySlug(slug: string): Promise<ApiResponse<PublicTag>
 export async function getPostsByTagSlug(
     slug: string,
     query?: PaginationQuery
-): Promise<ApiResponse<PaginatedResponse<PublicPost>>> {
+): Promise<ApiResponse<PaginatedResponse<PublicPost>> | null> {
     return fetchApi<ApiResponse<PaginatedResponse<PublicPost>>>(`/v1/public/tags/${slug}/posts`, {
         params: query as Record<string, string | number | undefined>,
     });

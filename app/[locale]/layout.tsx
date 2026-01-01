@@ -1,3 +1,4 @@
+import { ToastProvider } from "@/components/toast-provider";
 import { routing } from "@/i18n/routing";
 import MainLayout from "@/layouts/main-layout";
 import { getCategories } from "@/lib/api";
@@ -35,6 +36,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         notFound();
     }
     const categories = await getCategories();
+    console.log(categories);
     return (
         <html lang={locale} suppressHydrationWarning>
             <head>
@@ -48,6 +50,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 className={`${jetbrainsMono.variable} antialiased`}
                 style={{ fontFamily: "'Google Sans', sans-serif" }}
             >
+                <ToastProvider />
                 <NextIntlClientProvider>
                     <MainLayout categories={categories?.data || []}>{children}</MainLayout>
                 </NextIntlClientProvider>
