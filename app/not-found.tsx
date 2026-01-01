@@ -1,5 +1,7 @@
-import { Link } from "@/i18n/navigation";
 import { appRoutes } from "@/lib/utils";
+import "@/styles/globals.css";
+import { Button } from "flowbite-react";
+import Link from "next/link";
 
 export default function NotFound() {
     return (
@@ -12,11 +14,8 @@ export default function NotFound() {
                 The page you are looking for might have been removed, had its name changed, or is
                 temporarily unavailable.
             </p>
-            <Link
-                href={appRoutes.home}
-                className="rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700"
-            >
-                Go to Home
+            <Link href={appRoutes.home}>
+                <Button className="cursor-pointer text-base">Go to Home</Button>
             </Link>
         </div>
     );
