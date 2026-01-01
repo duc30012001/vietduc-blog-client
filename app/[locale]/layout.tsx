@@ -36,7 +36,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         notFound();
     }
     const categories = await getCategories();
-    console.log(categories);
     return (
         <html lang={locale} suppressHydrationWarning>
             <head>

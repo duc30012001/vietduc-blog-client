@@ -87,7 +87,7 @@ export function ThemeSwitcher() {
             label=""
             dismissOnClick
             renderTrigger={() => (
-                <Button color="light" size="sm" pill>
+                <Button color="light" size="sm" pill className="cursor-pointer">
                     {currentIcon}
                 </Button>
             )}

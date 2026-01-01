@@ -63,7 +63,7 @@ function MainLayout({ children, categories }: Props) {
                                     <NavbarLink
                                         as={Link}
                                         href={appRoutes.categoryDetail(category.slug)}
-                                        className="flex items-center gap-1"
+                                        className="flex items-center gap-1 text-base"
                                     >
                                         {getLocalizedName(category, locale)}
                                         <ChevronDown className="h-4 w-4" />
@@ -78,7 +78,7 @@ function MainLayout({ children, categories }: Props) {
                                         href={appRoutes.categoryDetail(child.slug)}
                                         className="w-46"
                                     >
-                                        <span className="block truncate">
+                                        <span className="block truncate text-base">
                                             {getLocalizedName(child, locale)}
                                         </span>
                                     </DropdownItem>
@@ -89,6 +89,7 @@ function MainLayout({ children, categories }: Props) {
                                 key={category.id}
                                 as={Link}
                                 href={appRoutes.categoryDetail(category.slug)}
+                                className="text-base"
                             >
                                 {getLocalizedName(category, locale)}
                             </NavbarLink>

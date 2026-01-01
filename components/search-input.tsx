@@ -26,7 +26,7 @@ export default function SearchInput() {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder={t("placeholder")}
-                    className="w-48 rounded-full border border-gray-300 bg-gray-50 py-2 pr-10 pl-4 text-sm text-gray-900 transition-all duration-200 placeholder:text-gray-500 focus:w-64 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500"
+                    className="w-48 rounded-full border border-gray-300 bg-gray-50 py-1.5 pr-10 pl-4 text-gray-900 transition-all duration-200 placeholder:text-gray-500 focus:w-64 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500"
                 />
                 <button
                     type="submit"

@@ -23,7 +23,7 @@ export function LocaleSwitcher() {
             onClick={toggleLocale}
             color="light"
             size="sm"
-            className="flex items-center gap-1"
+            className="flex cursor-pointer items-center gap-1"
             pill
         >
             <Image src={localeImage} alt={localeName} width={20} height={20} />

@@ -44,7 +44,7 @@ export default async function PostDetailPage({ params }: Props) {
     const readTime = calculateReadTime(content);
 
     return (
-        <article className="container mx-auto px-4 py-10">
+        <article className="container mx-auto px-4 py-10 pb-20">
             {/* Post Header */}
             <header className="mx-auto mb-8 max-w-5xl text-center">
                 {/* Meta Info */}
