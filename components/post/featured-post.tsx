@@ -26,8 +26,11 @@ function FeaturedPost({ data }: Props) {
     const readTime = calculateReadTime(content);
 
     return (
-        <Link href={appRoutes.postDetail(data.slug)} className="group block">
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl md:aspect-21/9 md:rounded-none">
+        <Link
+            href={appRoutes.postDetail(data.slug)}
+            className="group container mx-auto block overflow-hidden rounded-4xl"
+        >
+            <div className="relative aspect-video w-full md:aspect-21/9">
                 {/* Background Image */}
                 <Image
                     src={data.thumbnail || ""}
@@ -41,7 +44,9 @@ function FeaturedPost({ data }: Props) {
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 mx-auto flex max-w-7xl flex-col justify-end p-6 md:p-10">
+                <div className="absolute inset-0 mx-auto flex max-w-6xl flex-col justify-end px-4 pb-20">
+                    <p className="mb-5 text-xl font-medium text-white/70">Featured Post</p>
+
                     {/* Title */}
                     <h2 className="mb-8 max-w-4xl text-2xl leading-tight font-bold text-white md:text-4xl lg:text-5xl">
                         {getLocalizedName(data, locale)}

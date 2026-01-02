@@ -4,6 +4,8 @@
         "publishedAt": "Published at",
         "minRead": "{value} min read",
         "views": "{value} views",
+        "featuredBlogTitle": "Featured Posts",
+        "featuredBlogDescription": "Articles many readers are interested in.",
         "relatedPosts": "Related Posts",
         "latestPosts": "Latest Posts",
         "viewMore": "View more"

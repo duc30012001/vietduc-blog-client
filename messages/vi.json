@@ -4,6 +4,8 @@
         "publishedAt": "Đăng vào",
         "minRead": "{value} phút đọc",
         "views": "{value} lượt xem",
+        "featuredBlogTitle": "Bài viết nổi bật",
+        "featuredBlogDescription": "Những bài viết được nhiều người đọc và quan tâm trên blog.",
         "relatedPosts": "Bài viết liên quan",
         "latestPosts": "Bài viết mới nhất",
         "viewMore": "Xem thêm"

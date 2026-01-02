@@ -145,7 +145,7 @@ export default async function PostDetailPage({ params }: Props) {
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
-                <div className="mx-auto mt-16 max-w-6xl border-t border-gray-200 pt-8 dark:border-gray-700">
+                <div className="mx-auto mt-16 max-w-6xl border-t border-gray-300 pt-8 dark:border-gray-700">
                     <GridPost data={relatedPosts} title={messages("post.relatedPosts")} />
                 </div>
             )}

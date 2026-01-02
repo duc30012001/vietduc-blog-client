@@ -12,7 +12,7 @@ function PostCard({ post }: { post: PublicPost }) {
     return (
         <Link href={appRoutes.postDetail(post.slug)} className="group block">
             {post.thumbnail && (
-                <div className="relative aspect-video overflow-hidden rounded-xl">
+                <div className="relative aspect-video overflow-hidden rounded-2xl">
                     <Image
                         src={post.thumbnail}
                         alt={getLocalizedName(post, locale)}
