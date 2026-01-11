@@ -28,12 +28,18 @@
     "search": {
         "placeholder": "Tìm kiếm bài viết...",
         "title": "Kết quả tìm kiếm",
-        "noResults": "Không tìm thấy kết quả cho",
-        "resultsFor": "Kết quả cho"
+        "noResults": "Không tìm thấy kết quả",
+        "resultsFor": "Kết quả tìm kiếm cho \"{keyword}\"",
+        "label": "Tìm kiếm"
     },
     "theme": {
         "light": "Sáng",
         "dark": "Tối",
         "auto": "Tự động"
+    },
+    "pagination": {
+        "previous": "Trước",
+        "next": "Sau",
+        "pageOf": "Trang {current} / {total}"
     }
 }

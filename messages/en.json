@@ -28,11 +28,18 @@
     "search": {
         "placeholder": "Search posts...",
         "title": "Search Results",
-        "noResults": "No results found for"
+        "noResults": "No results found",
+        "resultsFor": "Search results for \"{keyword}\"",
+        "label": "Search"
     },
     "theme": {
         "light": "Light",
         "dark": "Dark",
         "auto": "Auto"
+    },
+    "pagination": {
+        "previous": "Previous",
+        "next": "Next",
+        "pageOf": "Page {current} of {total}"
     }
 }

@@ -55,60 +55,60 @@ function FeaturedPost1({ data }: Props) {
                         {/* Gradient Overlay */}
                         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
+                        {/* Meta Info */}
+                        <div className="absolute top-0 right-0 left-0 flex flex-wrap items-center justify-between gap-4 p-6">
+                            {/* Left: Author & Date */}
+                            <div className="flex flex-wrap items-center gap-10 text-sm text-white/80">
+                                {/* Publish Date */}
+                                {publishDate && (
+                                    <div className="flex flex-col gap-2">
+                                        <span className="font-medium text-white">
+                                            {publishDate}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Right: Tags & Read Time */}
+                            <div className="flex flex-wrap items-center gap-2">
+                                {/* Category */}
+                                {firstPost.category && (
+                                    <Badge variant="glass">
+                                        {getLocalizedName(firstPost.category, locale)}
+                                    </Badge>
+                                )}
+
+                                {/* Tags */}
+                                {firstPost.tags?.slice(0, 2).map((tag) => (
+                                    <Badge key={tag.id} variant="glass">
+                                        {getLocalizedName(tag, locale)}
+                                    </Badge>
+                                ))}
+
+                                {/* Read Time */}
+                                {readTime && (
+                                    <Badge variant="glass">
+                                        {messages("post.minRead", { value: readTime })}
+                                    </Badge>
+                                )}
+
+                                {/* View */}
+                                {firstPost.view_count && (
+                                    <Badge variant="glass">
+                                        {messages("post.views", {
+                                            value: formatNumber(firstPost.view_count, locale),
+                                        })}
+                                    </Badge>
+                                )}
+                            </div>
+                        </div>
+
                         {/* Content Overlay */}
                         <div className="absolute inset-0 mx-auto flex max-w-6xl flex-col justify-end p-6">
                             {/* Title */}
-                            <h2 className="mb-4 max-w-4xl text-xl leading-tight font-bold text-white md:text-2xl lg:text-3xl">
+                            <h2 className="mb-4 max-w-4xl text-lg leading-tight font-bold text-white md:text-xl lg:text-3xl">
                                 {getLocalizedName(firstPost, locale)}
                             </h2>
-
-                            {/* Meta Info */}
-                            <div className="flex flex-wrap items-center justify-between gap-4">
-                                {/* Left: Author & Date */}
-                                <div className="flex flex-wrap items-center gap-10 text-sm text-white/80">
-                                    {/* Publish Date */}
-                                    {publishDate && (
-                                        <div className="flex flex-col gap-2">
-                                            <span className="font-medium text-white">
-                                                {publishDate}
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Right: Tags & Read Time */}
-                                <div className="flex flex-wrap items-center gap-2">
-                                    {/* Category */}
-                                    {firstPost.category && (
-                                        <Badge variant="glass">
-                                            {getLocalizedName(firstPost.category, locale)}
-                                        </Badge>
-                                    )}
-
-                                    {/* Tags */}
-                                    {firstPost.tags?.slice(0, 2).map((tag) => (
-                                        <Badge key={tag.id} variant="glass">
-                                            {getLocalizedName(tag, locale)}
-                                        </Badge>
-                                    ))}
-
-                                    {/* Read Time */}
-                                    {readTime && (
-                                        <Badge variant="glass">
-                                            {messages("post.minRead", { value: readTime })}
-                                        </Badge>
-                                    )}
-
-                                    {/* View */}
-                                    {firstPost.view_count && (
-                                        <Badge variant="glass">
-                                            {messages("post.views", {
-                                                value: formatNumber(firstPost.view_count, locale),
-                                            })}
-                                        </Badge>
-                                    )}
-                                </div>
-                            </div>
 
                             {/* Excerpt */}
                             <p className="mt-6 max-w-4xl text-white/80">

@@ -40,6 +40,7 @@ function MdViewer(props: Props) {
         <div className="md-viewer" data-color-mode={colorMode}>
             <MarkdownPreview
                 {...props}
+                className="bg-transparent!"
                 rehypeRewrite={(node, index, parent) => {
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore

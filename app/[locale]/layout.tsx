@@ -10,6 +10,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const jetbrainsMono = JetBrains_Mono({
     variable: "--font-mono",
@@ -46,15 +47,14 @@ export default async function LocaleLayout({ children, params }: Props) {
                     href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700;800;900&display=swap"
                 />
             </head>
-            <body
-                className={`${jetbrainsMono.variable} antialiased`}
-                style={{ fontFamily: "'Google Sans', sans-serif" }}
-            >
-                <ToastProvider />
-                <NextIntlClientProvider>
-                    <NextTopLoader />
-                    <MainLayout categories={categories?.data || []}>{children}</MainLayout>
-                </NextIntlClientProvider>
+            <body className={`${jetbrainsMono.variable} antialiased`}>
+                <NuqsAdapter>
+                    <ToastProvider />
+                    <NextIntlClientProvider>
+                        <NextTopLoader />
+                        <MainLayout categories={categories?.data || []}>{children}</MainLayout>
+                    </NextIntlClientProvider>
+                </NuqsAdapter>
             </body>
         </html>
     );

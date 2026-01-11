@@ -8,5 +8,5 @@ export const appRoutes = {
     categoryDetail: (slug: string) => `/category/${slug}`,
     tag: "/tag",
     tagDetail: (slug: string) => `/tag/${slug}`,
-    search: (query: string) => `/search?q=${encodeURIComponent(query)}`,
+    search: (keyword: string) => `/search?keyword=${encodeURIComponent(keyword)}`,
 };

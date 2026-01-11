@@ -3,7 +3,6 @@
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import ScrollToTop from "@/components/scroll-to-top";
 import SearchInput from "@/components/search-input";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Link } from "@/i18n/navigation";
 import { appConfig } from "@/lib/configs/app.config";
 import { Locale, PublicCategory } from "@/lib/types";
@@ -47,7 +46,7 @@ function MainLayout({ children, categories }: Props) {
                 </NavbarBrand>
                 <div className="flex items-center gap-2 md:order-2">
                     <SearchInput />
-                    <ThemeSwitcher />
+                    {/* <ThemeSwitcher /> */}
                     <LocaleSwitcher />
                     <NavbarToggle />
                 </div>
