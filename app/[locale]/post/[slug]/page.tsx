@@ -23,6 +23,43 @@ type Props = {
     params: Promise<{ slug: string }>;
 };
 
+export async function generateMetadata({ params }: Props) {
+    const { slug } = await params;
+    const locale = (await getLocale()) as Locale;
+    const post = await getPostBySlug(slug);
+
+    if (!post) {
+        return notFound();
+    }
+
+    const title =
+        appConfig.app.title +
+        " | " +
+        getLocalizedName(post?.data || { name_en: "", name_vi: "" }, locale);
+    const description = getLocalizedExcerpt(post?.data || { name_en: "", name_vi: "" }, locale);
+    const thumbnail = post?.data.thumbnail;
+    const keywords = post?.data.tags.map((tag) => getLocalizedName(tag, locale));
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            images: [
+                {
+                    url: thumbnail,
+                    width: 800,
+                    height: 600,
+                },
+            ],
+        },
+        keywords: [...appConfig.app.keywords, ...keywords],
+        creator: post?.data.author?.name,
+        publisher: post?.data.author?.name,
+    };
+}
+
 export default async function PostDetailPage({ params }: Props) {
     const { slug } = await params;
     const locale = (await getLocale()) as Locale;
