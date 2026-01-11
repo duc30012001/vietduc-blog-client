@@ -9,6 +9,7 @@ import { Locale } from "@/lib/types";
 import {
     appRoutes,
     calculateReadTime,
+    formatNumber,
     formatPublishDate,
     getLocalizedContent,
     getLocalizedExcerpt,
@@ -42,6 +43,7 @@ export default async function PostDetailPage({ params }: Props) {
     const publishDate = formatPublishDate(post.published_at, locale);
     const content = getLocalizedContent(post, locale);
     const readTime = calculateReadTime(content);
+    const viewCount = formatNumber(post.view_count, locale);
 
     return (
         <article className="container mx-auto px-4 py-10 pb-20">
@@ -71,7 +73,7 @@ export default async function PostDetailPage({ params }: Props) {
                     {post.view_count > 0 && (
                         <>
                             <span>•</span>
-                            <span>{messages("post.views", { value: post.view_count })}</span>
+                            <span>{messages("post.views", { value: viewCount })}</span>
                         </>
                     )}
                 </div>
